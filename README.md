@@ -1,6 +1,6 @@
-# MSR-Analyzer: Ferramenta para Análise de Manutenibilidade de Software
+# Ferramenta para Análise de Manutenibilidade de Software
 
-Este projeto é parte do Trabalho Prático da disciplina de Mineração de Repositórios de Software.
+Este projeto é parte do Trabalho Prático da disciplina de Engenharia de Software II.
 
 ## 1. Membros do Grupo
 
