@@ -1,0 +1,11 @@
+# Ignorar ambiente virtual
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar configurações de ambiente e senhas
+.env
+
+# Ignorar arquivos do sistema / editor
+.DS_Store
+.vscode/
