@@ -1,35 +1,24 @@
 import typer
-from rich.console import Console
-from pr_profiler.analysis import get_pr_titles
+from pr_profiler.analysis import run_analysis
+from pr_profiler.presentation import display_report
 
 app = typer.Typer(no_args_is_help=True)
-console = Console()
 
 @app.callback()
 def main():
-    """
-    PR Profiler: Ferramenta de Mineração de Repositórios.
-    Use os comandos abaixo para analisar repositórios.
-    """
+    """PR Profiler CLI"""
     pass
 
 @app.command()
 def analyze(repo: str):
     """
-    Hello World: Lista os títulos dos últimos 10 PRs.
+    Analisa um repositório em busca de problemas de processo.
     """
-    console.print(f"[bold blue]Analisando repositório:[/bold blue] {repo}")
+    # Chama a lógica (Analysis)
+    report = run_analysis(repo)
     
-    # Chama a camada de lógica 
-    titles = get_pr_titles(repo)
-    
-    if not titles:
-        console.print("[red]Nenhum PR encontrado ou erro na busca.[/red]")
-        return
+    # Chama a visualização (Presentation)
+    display_report(report)
 
-    console.print("\n[bold green]Últimos 10 Pull Requests:[/bold green]")
-    for title in titles:
-        console.print(f" - {title}")
-
-if __name__ == "__main__":
+if __name__ == "_main_":
     app()
