@@ -16,18 +16,16 @@ def fetch_last_prs(repo_name: str, limit: int = 10) -> list[PRMetadata]:
 
         print(f"🔄 Conectando a {repo_name} e baixando PRs...")
 
-        # Converte o PaginatedList para lista normal
-        prs_list = list(repo.get_pulls(state='all', sort='created', direction='desc'))
-
-        if not prs_list:
-            print("⚠️ Nenhum Pull Request encontrado no repositório.")
-            return []
-
-        # Limita ao número solicitado
-        prs_raw = prs_list[:limit]
+        prs_paginated = repo.get_pulls(
+            state='all',
+            sort='created',
+            direction='desc',
+        )
 
         processed_prs = []
-        for pr in prs_raw:
+
+        # ITERA SEM CONVERTER PARA LISTA (evita travamento!)
+        for pr in prs_paginated[:limit]:
             meta = PRMetadata(
                 number=pr.number,
                 title=pr.title,
