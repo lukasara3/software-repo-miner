@@ -49,10 +49,19 @@ class PRAnalysis:
 @dataclass
 class RepoReport:
     """
-    Relatório final consolidado do repositório.
+    Relatório final consolidado.
+    Agora com suporte a métricas agregadas.
     """
     repo_name: str
+    total_scanned: int 
     analyzed_prs: List[PRAnalysis]
     
-    def count_by_category(self, category: str) -> int:
-        return sum(1 for pr in self.analyzed_prs if pr.category == category)
+    @property
+    def health_score(self) -> int:
+        """Calcula uma 'nota' de 0 a 100 para o processo"""
+        if self.total_scanned == 0:
+            return 100
+        problem_count = len(self.analyzed_prs)
+        # Penaliza 5 pontos por problema, mínimo 0
+        score = 100 - (problem_count / self.total_scanned * 100)
+        return int(max(0, score))
