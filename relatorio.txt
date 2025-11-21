@@ -1,0 +1,43 @@
+Iniciando PR Profiler para: 
+HelloWorld521/Java
+╭─ 📊 Resumo da Análise ─╮
+│ Repositório:           │
+│ HelloWorld521/Java     │
+│ PRs Analisados: 50     │
+│ PRs Problemáticos: 29  │
+│ Health Score: 42/100   │
+╰────────────────────────╯
+                       🔍 Diagnósticos Detalhados                       
+┏━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ PR   ┃ Problema    ┃ Severidade ┃ Motivo                             ┃
+┡━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ #129 │ 👻 Ghost PR │    High    │ Aberto há 92 dias sem interação.   │
+│ #117 │ 👻 Ghost PR │    High    │ Aberto há 373 dias sem interação.  │
+│ #114 │ 👻 Ghost PR │    High    │ Aberto há 470 dias sem interação.  │
+│ #113 │ 👻 Ghost PR │    High    │ Aberto há 475 dias sem interação.  │
+│ #110 │ 👻 Ghost PR │    High    │ Aberto há 626 dias sem interação.  │
+│ #109 │ 👻 Ghost PR │    High    │ Aberto há 626 dias sem interação.  │
+│ #104 │ 👻 Ghost PR │    High    │ Aberto há 828 dias sem interação.  │
+│ #102 │ 👻 Ghost PR │    High    │ Aberto há 856 dias sem interação.  │
+│ #99  │ 👻 Ghost PR │    High    │ Aberto há 931 dias sem interação.  │
+│ #97  │ 👻 Ghost PR │    High    │ Aberto há 946 dias sem interação.  │
+│ #95  │ 👻 Ghost PR │    High    │ Aberto há 1000 dias sem interação. │
+│ #93  │ 👻 Ghost PR │    High    │ Aberto há 1071 dias sem interação. │
+│ #92  │ 👻 Ghost PR │    High    │ Aberto há 1071 dias sem interação. │
+│ #91  │ 👻 Ghost PR │    High    │ Aberto há 1077 dias sem interação. │
+│ #89  │ 👻 Ghost PR │    High    │ Aberto há 1101 dias sem interação. │
+│ #84  │ 👻 Ghost PR │    High    │ Aberto há 1123 dias sem interação. │
+│ #79  │ 👻 Ghost PR │    High    │ Aberto há 1249 dias sem interação. │
+│ #78  │ 👻 Ghost PR │    High    │ Aberto há 1276 dias sem interação. │
+│ #75  │ 👻 Ghost PR │    High    │ Aberto há 1326 dias sem interação. │
+│ #69  │ 👻 Ghost PR │    High    │ Aberto há 1380 dias sem interação. │
+│ #63  │ 👻 Ghost PR │    High    │ Aberto há 1511 dias sem interação. │
+│ #62  │ 👻 Ghost PR │    High    │ Aberto há 1511 dias sem interação. │
+│ #61  │ 👻 Ghost PR │    High    │ Aberto há 1511 dias sem interação. │
+│ #60  │ 👻 Ghost PR │    High    │ Aberto há 1511 dias sem interação. │
+│ #59  │ 👻 Ghost PR │    High    │ Aberto há 1628 dias sem interação. │
+│ #58  │ 👻 Ghost PR │    High    │ Aberto há 1628 dias sem interação. │
+│ #56  │ 👻 Ghost PR │    High    │ Aberto há 1650 dias sem interação. │
+│ #52  │ 👻 Ghost PR │    High    │ Aberto há 1673 dias sem interação. │
+│ #43  │ 👻 Ghost PR │    High    │ Aberto há 1857 dias sem interação. │
+└──────┴─────────────┴────────────┴────────────────────────────────────┘
