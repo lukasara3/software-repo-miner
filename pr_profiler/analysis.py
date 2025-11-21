@@ -38,17 +38,18 @@ def analyze_pr(pr: PRMetadata) -> Optional[PRAnalysis]:
 
     return None
 def run_analysis(repo_name: str) -> RepoReport:
-    """
-    Orquestra a busca e análise completa.
-    """
-    raw_prs = fetch_last_prs(repo_name, limit=30)
+    # Busca 50 PRs para ter uma amostra estatística melhor
+    raw_prs = fetch_last_prs(repo_name, limit=50)
     
     analyzed_prs = []
     for pr in raw_prs:
         analysis = analyze_pr(pr)
         if analysis:
             analyzed_prs.append(analysis)
-        else:
-            pass 
             
-    return RepoReport(repo_name=repo_name, analyzed_prs=analyzed_prs)
+    # Retorna o relatório com o total scanneado
+    return RepoReport(
+        repo_name=repo_name, 
+        total_scanned=len(raw_prs), 
+        analyzed_prs=analyzed_prs
+    )
