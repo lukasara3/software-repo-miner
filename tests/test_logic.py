@@ -11,8 +11,7 @@ def create_mock_pr(
     state='open'
 ) -> PRMetadata:
     """Cria um PR falso para facilitar os testes"""
-    # CORREÇÃO: Adicionamos hours=4 para compensar fuso horário (UTC vs Local)
-    # Isso garante que "10 dias" sejam "10 dias e 4 horas", evitando o arredondamento para 9
+    # Adicionamos hours=4 para compensar fuso horário e garantir a virada do dia
     create_date = datetime.now(timezone.utc) - timedelta(days=days_old, hours=4)
     
     return PRMetadata(
@@ -30,15 +29,12 @@ def create_mock_pr(
         is_merged=False
     )
 
-# --- BATERIA DE TESTES (12 Testes) ---
+# --- BATERIA DE TESTES EXISTENTE (1-12) ---
 
-# 1. Teste de cálculo de dias (Models)
 def test_age_in_days_calc():
     pr = create_mock_pr(days_old=10)
-    # Agora deve ser 10 com certeza
     assert pr.age_in_days == 10
 
-# 2. Teste Ghost PR: Deve detectar quando for velho e sem comentários
 def test_detect_ghost_pr():
     pr = create_mock_pr(days_old=31, comments=0, state='open')
     analysis = analyze_pr(pr)
@@ -46,72 +42,104 @@ def test_detect_ghost_pr():
     assert analysis.category == "👻 Ghost PR"
     assert analysis.severity == "High"
 
-# 3. Teste Ghost PR: NÃO deve detectar se tiver comentários
 def test_ignore_ghost_pr_with_comments():
     pr = create_mock_pr(days_old=31, comments=1, state='open')
     analysis = analyze_pr(pr)
-    assert analysis is None  # É saudável
+    assert analysis is None 
 
-# 4. Teste Ghost PR: NÃO deve detectar se for recente
 def test_ignore_ghost_pr_recent():
     pr = create_mock_pr(days_old=5, comments=0, state='open')
     analysis = analyze_pr(pr)
     assert analysis is None
 
-# 5. Teste Wall of Text: Deve detectar PR gigante
 def test_detect_wall_of_text():
-    # 600 add + 500 del = 1100 linhas (> 1000)
     pr = create_mock_pr(additions=600, deletions=500)
     analysis = analyze_pr(pr)
     assert analysis is not None
     assert analysis.category == "🧱 Wall of Text"
     assert analysis.severity == "Medium"
 
-# 6. Teste Wall of Text: NÃO deve detectar PR pequeno
 def test_ignore_wall_of_text_small():
     pr = create_mock_pr(additions=100, deletions=100)
     analysis = analyze_pr(pr)
     assert analysis is None
 
-# 7. Teste Bikeshedding: Deve detectar muita discussão em pouca mudança
 def test_detect_bikeshedding():
-    # 45 comments, 10 linhas alteradas
     pr = create_mock_pr(comments=45, additions=5, deletions=5)
     analysis = analyze_pr(pr)
     assert analysis is not None
     assert analysis.category == "🚲 Bikeshedding"
     assert analysis.severity == "Low"
 
-# 8. Teste Bikeshedding: NÃO deve detectar se a discussão for proporcional
 def test_ignore_bikeshedding_normal():
-    # 10 comments, 10 linhas alteradas (não atinge limite de 40 comments)
     pr = create_mock_pr(comments=10, additions=5, deletions=5)
     analysis = analyze_pr(pr)
     assert analysis is None
 
-# 9. Teste Prioridade: Ghost PR deve ser retornado mesmo se for pequeno
 def test_priority_ghost_over_others():
-    # É velho, sem comments, e pequeno. Deve ser Ghost.
     pr = create_mock_pr(days_old=40, comments=0, additions=10, deletions=10)
     analysis = analyze_pr(pr)
     assert analysis.category == "👻 Ghost PR"
 
-# 10. Teste Health Score: 100% se lista vazia
 def test_health_score_perfect():
     report = RepoReport(repo_name="test", total_scanned=0, analyzed_prs=[])
     assert report.health_score == 100
 
-# 11. Teste Health Score: Penalidade funciona
 def test_health_score_penalized():
-    # 10 escaneados, 5 problemáticos = 50% problemas -> score 50
     dummy_analysis = PRAnalysis(create_mock_pr(), "Bad", "Reason", "High")
     problems = [dummy_analysis] * 5
     report = RepoReport(repo_name="test", total_scanned=10, analyzed_prs=problems)
     assert report.health_score == 50
 
-# 12. Teste Health Score: Não pode ser negativo
 def test_health_score_not_negative():
     dummy_analysis = PRAnalysis(create_mock_pr(), "Bad", "Reason", "High")
-    problems = [dummy_analysis] * 20 # 20 problemas em 10 scanneados
+    problems = [dummy_analysis] * 20 
     report = RepoReport(repo_name="test", total_scanned=10, analyzed_prs=problems)
-    assert report.health_score == 0 # Mínimo deve ser 0
+    assert report.health_score == 0
+
+# --- NOVOS TESTES (13-17) ---
+
+# 13. Teste Review Vacuum: Detectar PR parado entre 7 e 30 dias
+def test_detect_review_vacuum():
+    # 15 dias, sem comentários (não é Ghost ainda, mas é Vacuum)
+    pr = create_mock_pr(days_old=15, comments=0, state='open')
+    analysis = analyze_pr(pr)
+    assert analysis is not None
+    assert analysis.category == "🕸️ Review Vacuum"
+    assert analysis.severity == "Medium"
+
+# 14. Teste Limite Ghost vs Vacuum: Exatamente 30 dias
+def test_boundary_ghost_vs_vacuum():
+    # A regra do Ghost é > 30. Então 30 dias EXATOS deve ser Vacuum.
+    pr = create_mock_pr(days_old=30, comments=0, state='open')
+    analysis = analyze_pr(pr)
+    assert analysis.category == "🕸️ Review Vacuum"
+
+# 15. Teste Limite Vacuum vs Saudável: Exatamente 7 dias
+def test_boundary_vacuum_vs_healthy():
+    # A regra do Vacuum é > 7. Então 7 dias EXATOS deve ser saudável.
+    pr = create_mock_pr(days_old=7, comments=0, state='open')
+    analysis = analyze_pr(pr)
+    assert analysis is None
+
+# 16. Teste Vacuum Ignorado: Se tiver comentário, não é vácuo
+def test_ignore_vacuum_with_comments():
+    pr = create_mock_pr(days_old=20, comments=1, state='open')
+    analysis = analyze_pr(pr)
+    assert analysis is None
+
+# 17. Teste JSON Export: Verifica se a estrutura do dicionário está certa
+def test_repo_report_to_dict():
+    # Cria um relatório com 1 problema
+    mock_pr = create_mock_pr(days_old=40)
+    analysis = PRAnalysis(mock_pr, "👻 Ghost PR", "Old", "High")
+    report = RepoReport("user/repo", 10, [analysis])
+    
+    data = report.to_dict()
+    
+    # Verifica se as chaves principais existem
+    assert "repo_name" in data
+    assert "metrics" in data
+    assert "problems" in data
+    assert data["metrics"]["health_score"] == 90 # 1 problema em 10
+    assert data["problems"][0]["category"] == "👻 Ghost PR"

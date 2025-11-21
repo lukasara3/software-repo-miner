@@ -9,7 +9,6 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 def fetch_last_prs(repo_name: str, limit: int = 10) -> List[PRMetadata]:
     if not GITHUB_TOKEN:
-        # Lança erro para ser pego pela CLI
         raise ValueError("GITHUB_TOKEN não encontrado no .env")
 
     try:
@@ -20,7 +19,6 @@ def fetch_last_prs(repo_name: str, limit: int = 10) -> List[PRMetadata]:
         prs_raw = repo.get_pulls(state='all', sort='created', direction='desc')[:limit]
         
         processed_prs = []
-        # Forçamos a iteração aqui para disparar erros de rede se houver
         for pr in prs_raw:
             meta = PRMetadata(
                 number=pr.number,

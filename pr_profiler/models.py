@@ -2,66 +2,73 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import List, Optional
 
-# dados brutos
+# --- DADOS BRUTOS (Vêm do GitHub) ---
 @dataclass
 class PRMetadata:
-    """
-    Dados brutos de um Pull Request extraídos do GitHub.
-    """
     number: int
     title: str
     author: str
     created_at: datetime
     closed_at: Optional[datetime]
     merged_at: Optional[datetime]
-    
-    # Métricas
     additions: int
     deletions: int
     files_changed: int
     comments_count: int
-    
-    # Status
     state: str
     is_merged: bool
 
     @property
     def age_in_days(self) -> int:
-        """Calcula idade do PR em dias corridos"""
         end_date = self.closed_at or datetime.now()
-        # Ajuste de fuso horário simples para evitar erros
         if self.created_at.tzinfo:
             end_date = end_date.replace(tzinfo=self.created_at.tzinfo)
         delta = end_date - self.created_at
         return delta.days
 
-# dados para analise
+# --- DADOS DE ANÁLISE ---
 @dataclass
 class PRAnalysis:
-    """
-    Representa o diagnóstico de um único PR.
-    """
-    metadata: PRMetadata  
-    category: str         
-    reason: str           
-    severity: str        
+    metadata: PRMetadata
+    category: str
+    reason: str
+    severity: str
 
 @dataclass
 class RepoReport:
     """
     Relatório final consolidado.
-    Agora com suporte a métricas agregadas.
     """
     repo_name: str
-    total_scanned: int 
+    total_scanned: int
     analyzed_prs: List[PRAnalysis]
     
     @property
     def health_score(self) -> int:
-        """Calcula uma 'nota' de 0 a 100 para o processo"""
-        if self.total_scanned == 0:
-            return 100
+        if self.total_scanned == 0: return 100
         problem_count = len(self.analyzed_prs)
-        # Penaliza 5 pontos por problema, mínimo 0
         score = 100 - (problem_count / self.total_scanned * 100)
         return int(max(0, score))
+
+    def to_dict(self):
+        """Converte o relatório para um dicionário compatível com JSON"""
+        return {
+            "repo_name": self.repo_name,
+            "timestamp": datetime.now().isoformat(),
+            "metrics": {
+                "total_scanned": self.total_scanned,
+                "problem_count": len(self.analyzed_prs),
+                "health_score": self.health_score
+            },
+            "problems": [
+                {
+                    "pr_number": p.metadata.number,
+                    "title": p.metadata.title,
+                    "category": p.category,
+                    "severity": p.severity,
+                    "reason": p.reason,
+                    "days_open": p.metadata.age_in_days,
+                    "url": f"https://github.com/{self.repo_name}/pull/{p.metadata.number}"
+                } for p in self.analyzed_prs
+            ]
+        }

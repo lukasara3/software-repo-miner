@@ -9,7 +9,7 @@ console = Console()
 def display_report(report: RepoReport):
     """Imprime relatório com resumo e tabela."""
     
-    # 1. Cabeçalho com Métricas Agregadas (Painel)
+    # Cabeçalho com Métricas Agregadas (Painel)
     count_problems = len(report.analyzed_prs)
     health_color = "green" if report.health_score > 80 else ("yellow" if report.health_score > 50 else "red")
     
@@ -25,7 +25,7 @@ def display_report(report: RepoReport):
         console.print("\n[bold green]✨ Tudo limpo! Nenhum anti-padrão detectado na amostra.[/bold green]")
         return
 
-    # 2. Tabela de Detalhes
+    # Tabela de Detalhes
     table = Table(title="🔍 Diagnósticos Detalhados")
     table.add_column("PR", style="cyan", no_wrap=True)
     table.add_column("Problema", style="bold red")

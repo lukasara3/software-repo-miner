@@ -1,0 +1,34 @@
+Iniciando PR Profiler para: sansan0/TrendRadar
+╭───── 📊 Resumo da Análise ──────╮
+│ Repositório: sansan0/TrendRadar │
+│ PRs Analisados: 50              │
+│ PRs Problemáticos: 22           │
+│ Health Score: 56/100            │
+╰─────────────────────────────────╯
+                                    🔍 Diagnósticos Detalhados                                     
+┏━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ PR   ┃ Problema        ┃ Severidade ┃ Motivo                                                    ┃
+┡━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ #314 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 5238 linhas alteradas. Difícil de revisar.    │
+│ #310 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 9868 linhas alteradas. Difícil de revisar.    │
+│ #309 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 1424783 linhas alteradas. Difícil de revisar. │
+│ #308 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 1404618 linhas alteradas. Difícil de revisar. │
+│ #306 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 389858 linhas alteradas. Difícil de revisar.  │
+│ #305 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 596844 linhas alteradas. Difícil de revisar.  │
+│ #300 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 106031 linhas alteradas. Difícil de revisar.  │
+│ #295 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 167507 linhas alteradas. Difícil de revisar.  │
+│ #289 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 35659 linhas alteradas. Difícil de revisar.   │
+│ #287 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 925310 linhas alteradas. Difícil de revisar.  │
+│ #285 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 53743 linhas alteradas. Difícil de revisar.   │
+│ #275 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 163166 linhas alteradas. Difícil de revisar.  │
+│ #264 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 1821 linhas alteradas. Difícil de revisar.    │
+│ #261 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 124453 linhas alteradas. Difícil de revisar.  │
+│ #260 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 39607 linhas alteradas. Difícil de revisar.   │
+│ #256 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 673859 linhas alteradas. Difícil de revisar.  │
+│ #253 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 714283 linhas alteradas. Difícil de revisar.  │
+│ #251 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 1566 linhas alteradas. Difícil de revisar.    │
+│ #247 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 14425 linhas alteradas. Difícil de revisar.   │
+│ #245 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 1469 linhas alteradas. Difícil de revisar.    │
+│ #238 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 2754 linhas alteradas. Difícil de revisar.    │
+│ #235 │ 🧱 Wall of Text │   Medium   │ PR Gigante: 324172 linhas alteradas. Difícil de revisar.  │
+└──────┴─────────────────┴────────────┴───────────────────────────────────────────────────────────┘

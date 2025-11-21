@@ -1,0 +1,209 @@
+{
+    "repo_name": "sansan0/TrendRadar",
+    "timestamp": "2025-11-21T17:16:57.826228",
+    "metrics": {
+        "total_scanned": 50,
+        "problem_count": 22,
+        "health_score": 56
+    },
+    "problems": [
+        {
+            "pr_number": 314,
+            "title": "testpull",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 5238 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/314"
+        },
+        {
+            "pr_number": 310,
+            "title": "refactor: reimplement trend radar page UI with updated HTML and CSS.",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 9868 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/310"
+        },
+        {
+            "pr_number": 309,
+            "title": "g",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 1424783 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/309"
+        },
+        {
+            "pr_number": 308,
+            "title": "gx",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 1404618 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/308"
+        },
+        {
+            "pr_number": 306,
+            "title": "updated 20251121",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 389858 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/306"
+        },
+        {
+            "pr_number": 305,
+            "title": "1",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 596844 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/305"
+        },
+        {
+            "pr_number": 300,
+            "title": "Update README.md",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 106031 linhas alteradas. Difícil de revisar.",
+            "days_open": 1,
+            "url": "https://github.com/sansan0/TrendRadar/pull/300"
+        },
+        {
+            "pr_number": 295,
+            "title": "update",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 167507 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/295"
+        },
+        {
+            "pr_number": 289,
+            "title": "Add Flag:4096 in Discord Webhook Payload",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 35659 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/289"
+        },
+        {
+            "pr_number": 287,
+            "title": "x",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 923001 linhas alteradas. Difícil de revisar.",
+            "days_open": 1,
+            "url": "https://github.com/sansan0/TrendRadar/pull/287"
+        },
+        {
+            "pr_number": 285,
+            "title": "305",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 53743 linhas alteradas. Difícil de revisar.",
+            "days_open": 1,
+            "url": "https://github.com/sansan0/TrendRadar/pull/285"
+        },
+        {
+            "pr_number": 275,
+            "title": "Auto update by GitHub Actions at Wed Nov 19 16:30:53 CST 2025",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 163166 linhas alteradas. Difícil de revisar.",
+            "days_open": 2,
+            "url": "https://github.com/sansan0/TrendRadar/pull/275"
+        },
+        {
+            "pr_number": 264,
+            "title": "docs: add Japanese README",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 1821 linhas alteradas. Difícil de revisar.",
+            "days_open": 3,
+            "url": "https://github.com/sansan0/TrendRadar/pull/264"
+        },
+        {
+            "pr_number": 261,
+            "title": "new",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 124453 linhas alteradas. Difícil de revisar.",
+            "days_open": 3,
+            "url": "https://github.com/sansan0/TrendRadar/pull/261"
+        },
+        {
+            "pr_number": 260,
+            "title": "merge",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 39607 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/260"
+        },
+        {
+            "pr_number": 256,
+            "title": "修噶了txt",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 673859 linhas alteradas. Difícil de revisar.",
+            "days_open": 3,
+            "url": "https://github.com/sansan0/TrendRadar/pull/256"
+        },
+        {
+            "pr_number": 253,
+            "title": "d'd'dddd",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 714283 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/253"
+        },
+        {
+            "pr_number": 251,
+            "title": "Claude/docker deployment tutorial 01 lgi zs jp mv vv hg jm yi1 brez",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 1566 linhas alteradas. Difícil de revisar.",
+            "days_open": 4,
+            "url": "https://github.com/sansan0/TrendRadar/pull/251"
+        },
+        {
+            "pr_number": 247,
+            "title": "up",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 14425 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/247"
+        },
+        {
+            "pr_number": 245,
+            "title": "Claude/analyze and implement 01 cyshpwg83g pc97pzkzsw p3",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 1469 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/245"
+        },
+        {
+            "pr_number": 238,
+            "title": "docs: 중국어 콘텐츠 전부 한글로 번역",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 2754 linhas alteradas. Difícil de revisar.",
+            "days_open": 0,
+            "url": "https://github.com/sansan0/TrendRadar/pull/238"
+        },
+        {
+            "pr_number": 235,
+            "title": "update",
+            "category": "🧱 Wall of Text",
+            "severity": "Medium",
+            "reason": "PR Gigante: 324172 linhas alteradas. Difícil de revisar.",
+            "days_open": 1,
+            "url": "https://github.com/sansan0/TrendRadar/pull/235"
+        }
+    ]
+}
